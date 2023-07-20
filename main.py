@@ -19,13 +19,13 @@ def collect(img_path, extension=IMG_EXTENSIONS):
     files = sum(map(glob, [img_path + ext for ext in extension]), [])
     return files
 
+
 # Define a function to normalize the mask.
 def normalize(image):
     mask = np.atleast_3d(image).astype(float) / 255.
     mask[mask != 1] = 0
     mask = mask[:, :, 0]
     return mask
-
 
 
 # Find the input folder.
